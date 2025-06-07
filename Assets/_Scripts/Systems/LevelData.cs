@@ -59,7 +59,7 @@ public class LevelData : MonoBehaviour
         if (!(state == levelStates.LOST))
         {
             LevelSystem.instance.CheckLevel();
-        }
+        } 
         if (LevelSystem.instance.noMoreLevels)
         {
             
