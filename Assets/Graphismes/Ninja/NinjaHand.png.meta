@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NinjaHand_0: 4767065297344090051
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
