@@ -46,19 +46,10 @@ public class Object : MonoBehaviour
 
     private void Awake()
     {
-<<<<<<< Updated upstream
-        r_spriteRenderer.sprite = r_sprite;
-        l_spriteRenderer.sprite = l_sprite; 
 
-        r_object = r_spriteRenderer.gameObject;
-        l_object = l_spriteRenderer.gameObject;
-
-        spline = splinePath.Spline;
-        cut = InputSystem.actions.FindAction("Attack");
-=======
         
        
->>>>>>> Stashed changes
+
         
 
     }
@@ -130,19 +121,18 @@ public class Object : MonoBehaviour
                 isCut = true;
                 canCut = false;
                 LaunchObjet();
+                StartCoroutine(handleEnd(LevelData.levelStates.WON));
             }
             else
             {
                 Debug.Log(" FAILURE !");
             }
-<<<<<<< Updated upstream
-           
-=======
-            StartCoroutine(handleEnd(State));
+
+          
 
             canInputCut = false;
 
->>>>>>> Stashed changes
+
         }
       
     }
@@ -171,8 +161,7 @@ public class Object : MonoBehaviour
         
     }
 
-<<<<<<< Updated upstream
-=======
+
     IEnumerator handleEnd(LevelData.levelStates state)
     {
         yield return new WaitForSeconds(1.5f);
@@ -182,6 +171,6 @@ public class Object : MonoBehaviour
         
     }
 
->>>>>>> Stashed changes
+
     
 }
