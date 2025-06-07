@@ -44,7 +44,6 @@ public class ShockwaveFXController : MonoBehaviour
         IEnumerator ShockwaveCoroutine()
         {
             float timeElapsed = 0f;
-            Debug.Log("aaaaaa");
             while (timeElapsed < shockwaveDuration)
             {
                 _scalableCircle.Width = _circleWidthCurve.Evaluate(timeElapsed / shockwaveDuration);
