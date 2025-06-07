@@ -1,8 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class EffectsData : MonoBehaviour
 {
     public Animator animatorTransition;
+    public Animator bannerRound;
+    public TMP_Text boundText;
+    public GameObject winScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +26,19 @@ public class EffectsData : MonoBehaviour
         {
             HandleEndEffects();
         }
+
+        if (LevelData.instance.beforeProcess)
+        {
+            bannerRound.Play("ShowRound");
+            ShowRound();
+        }
+
+        if (LevelData.instance.gameEnded)
+        {
+            winScreen.SetActive(true);
+        }
+
+        LevelData.instance.CheckStates();
     }
 
     void HandleStartEffects()
@@ -32,5 +49,12 @@ public class EffectsData : MonoBehaviour
     void HandleEndEffects()
     {
         animatorTransition.Play("TransitionEnd");
+    }
+
+    void ShowRound()
+    {
+       
+        boundText.text = "ROUND " + LevelSystem.instance.currentLevelID.ToString();
+       
     }
 }

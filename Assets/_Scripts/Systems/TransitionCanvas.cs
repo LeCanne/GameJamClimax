@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class TransitionCanvas : MonoBehaviour
 {
     public Image transitionImage;
-    public Animator animator;
+  
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,13 +18,5 @@ public class TransitionCanvas : MonoBehaviour
         
     }
 
-    void PlayTransition()
-    {
-        animator.Play("TransitionStart");
-    }
-
-    void ReverseTransition()
-    {
-        animator.Play("TransitionEnd");
-    }
+   
 }

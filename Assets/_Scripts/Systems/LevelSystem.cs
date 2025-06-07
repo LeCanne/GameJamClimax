@@ -6,6 +6,7 @@ public class LevelSystem : MonoBehaviour
     public GameObject[] levels;
     public int currentLevelID;
     public GameObject currentLevelObject;
+    public bool noMoreLevels;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -45,9 +46,18 @@ public class LevelSystem : MonoBehaviour
     {
         currentLevelObject.SetActive(false);
         currentLevelID += 1;
-        currentLevelID = Mathf.Clamp(currentLevelID, 0, levels.Length - 1);
-        currentLevelObject = levels[currentLevelID];
-        currentLevelObject.SetActive(true);
+        if (currentLevelID >= levels.Length - 1)
+        {
+            noMoreLevels = true;
+        }
+        else
+        {
+            currentLevelObject = levels[currentLevelID];
+            currentLevelObject.SetActive(true);
+        }
+
+        noMoreLevels = false;
+       
     }
 
     

@@ -12,6 +12,12 @@ public class LevelData : MonoBehaviour
 
     public float loadingTime;
 
+
+    public bool beforeProcess;
+    public bool processingLevel;
+
+    public bool gameEnded;
+
     public enum levelStates
     {
         ONGOING,
@@ -37,19 +43,19 @@ public class LevelData : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(ProcessingStart());
     }
 
     // Update is called once per frame
     void Update()
     {
-     
+      gameEnded = LevelSystem.instance.noMoreLevels;
 
     }
 
     public void HandleEnd()
     {
-
+        processingLevel = false;
         switch (state)
         {
             case levelStates.ONGOING:
@@ -60,21 +66,38 @@ public class LevelData : MonoBehaviour
             case levelStates.LOST:
                 break;
         }
+
+        if (LevelSystem.instance.noMoreLevels)
+        {
+            gameEnded = true;
+        }
+        else
+        {
+            StartCoroutine(LoadingTime());
+        }
        
-        StartCoroutine(LoadingTime());
 
     }
 
     IEnumerator LoadingTime()
     {
-        yield return new WaitForSeconds(0.1f);
-        CheckStates();
+        
         yield return new WaitForSeconds(loadingTime);
         LevelSystem.instance.NextLevel();
         yield return levelStarted = true;
         yield return new WaitForSeconds(0.1f);
-        CheckStates();
+       
+        StartCoroutine(ProcessingStart());
+        
+    }
 
+
+    IEnumerator ProcessingStart()
+    {
+        beforeProcess = true;
+        yield return new WaitForSeconds(2.5f);
+        processingLevel = true;
+        
     }
 
     public void CheckStates()
@@ -88,6 +111,16 @@ public class LevelData : MonoBehaviour
         if (levelStarted == true)
         {
             levelStarted = false;
+        }
+
+        if(beforeProcess == true)
+        {
+            beforeProcess = false;
+        }
+
+        if (gameEnded == true)
+        {
+            gameEnded = false;
         }
     }
 

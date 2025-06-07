@@ -40,6 +40,7 @@ public class Object : MonoBehaviour
     bool canCut;
     bool isCut;
     bool canInputCut = true;
+    
 
    
 
@@ -70,12 +71,16 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isCut)
+       if(LevelData.instance.processingLevel == true)
         {
-            TravelSpline();
-        }
+            if (!isCut)
+            {
+                TravelSpline();
+            }
 
-        SlashObject();
+            SlashObject();
+        }
+      
         
 
     }
