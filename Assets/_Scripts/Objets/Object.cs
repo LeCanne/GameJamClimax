@@ -40,6 +40,8 @@ public class Object : MonoBehaviour
     bool canCut;
     bool isCut;
     bool canInputCut = true;
+
+    bool lost;
     
 
    
@@ -103,6 +105,10 @@ public class Object : MonoBehaviour
         }
         Vector3 currentDistance = spline.EvaluatePosition(animationCurve.Evaluate(currentTime));
         moveObject.transform.position = currentDistance + splinePath.gameObject.transform.position;
+        if(currentTime >= 1)
+        {
+          StartCoroutine(handleEnd(LevelData.levelStates.LOST));
+        }
 
         
     }

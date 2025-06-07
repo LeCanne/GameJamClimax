@@ -6,7 +6,9 @@ public class EffectsData : MonoBehaviour
     public Animator animatorTransition;
     public Animator bannerRound;
     public TMP_Text boundText;
+    public GameObject endScreen;
     public GameObject winScreen;
+    public GameObject loseScreen;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,7 +37,14 @@ public class EffectsData : MonoBehaviour
 
         if (LevelData.instance.gameEnded)
         {
+            endScreen.SetActive(true);
             winScreen.SetActive(true);
+        }
+
+        if (LevelData.instance.hasLost)
+        {
+            endScreen.SetActive(true);
+            loseScreen.SetActive(true);
         }
 
         LevelData.instance.CheckStates();
@@ -57,4 +66,6 @@ public class EffectsData : MonoBehaviour
         boundText.text = "ROUND " + LevelSystem.instance.currentLevelID.ToString();
        
     }
+
+   
 }

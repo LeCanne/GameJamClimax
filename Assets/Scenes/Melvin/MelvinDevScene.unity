@@ -213,6 +213,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &741248025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1280866945372929605, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+  m_PrefabInstance: {fileID: 1756684409636408234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &775813692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3561138848037922355, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+  m_PrefabInstance: {fileID: 1756684409636408234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &939019811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -274,6 +284,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7fa4f4ffabed5c4299c00b75ef624be, type: 3}
+--- !u!1 &1153127216 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7136818887115946213, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+  m_PrefabInstance: {fileID: 1756684409636408234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1174439864 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9005276397416443477, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
@@ -311,7 +326,9 @@ MonoBehaviour:
   animatorTransition: {fileID: 1174439864}
   bannerRound: {fileID: 20128827}
   boundText: {fileID: 1348132031}
-  winScreen: {fileID: 0}
+  endScreen: {fileID: 1153127216}
+  winScreen: {fileID: 741248025}
+  loseScreen: {fileID: 775813692}
 --- !u!4 &1259474984
 Transform:
   m_ObjectHideFlags: 0
@@ -610,6 +627,7 @@ MonoBehaviour:
   beforeProcess: 0
   processingLevel: 0
   gameEnded: 0
+  hasLost: 0
   state: 0
 --- !u!4 &2124470290
 Transform:
@@ -637,6 +655,14 @@ PrefabInstance:
     - target: {fileID: 1222458764731709529, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
       propertyPath: m_Name
       value: TransitionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280866945372929605, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+      propertyPath: m_Name
+      value: WIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 1280866945372929605, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1685287217639906198, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
       propertyPath: m_Pivot.x
@@ -716,6 +742,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685287217639906198, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561138848037922355, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+      propertyPath: m_Name
+      value: LOST
+      objectReference: {fileID: 0}
+    - target: {fileID: 3561138848037922355, guid: 1db9331635b3698478dc668fe122af6a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

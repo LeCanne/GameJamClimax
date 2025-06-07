@@ -42,19 +42,25 @@ public class LevelSystem : MonoBehaviour
         currentLevelObject = levels[currentLevelID];
     }
 
-    public void NextLevel()
+    public void CheckLevel() 
     {
-        currentLevelObject.SetActive(false);
-        currentLevelID += 1;
         if (currentLevelID >= levels.Length - 1)
         {
             noMoreLevels = true;
         }
-        else
+    }
+    public void NextLevel()
+    {
+        CheckLevel();
+        if(noMoreLevels == true)
         {
-            currentLevelObject = levels[currentLevelID];
-            currentLevelObject.SetActive(true);
+            return;
         }
+        currentLevelObject.SetActive(false);
+        currentLevelID += 1;
+        currentLevelObject = levels[currentLevelID];
+        currentLevelObject.SetActive(true);
+        
 
         noMoreLevels = false;
        

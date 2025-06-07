@@ -17,6 +17,7 @@ public class LevelData : MonoBehaviour
     public bool processingLevel;
 
     public bool gameEnded;
+    public bool hasLost;
 
     public enum levelStates
     {
@@ -49,12 +50,25 @@ public class LevelData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      gameEnded = LevelSystem.instance.noMoreLevels;
+      
 
     }
 
     public void HandleEnd()
     {
+        if (!(state == levelStates.LOST))
+        {
+            LevelSystem.instance.CheckLevel();
+        }
+        if (LevelSystem.instance.noMoreLevels)
+        {
+            
+            gameEnded = true;
+            return;
+        }
+        
+          
+        
         processingLevel = false;
         switch (state)
         {
@@ -62,20 +76,14 @@ public class LevelData : MonoBehaviour
                 break;
             case levelStates.WON:
                 levelFinished = true;
+                StartCoroutine(LoadingTime());
                 break;
             case levelStates.LOST:
+                hasLost = true;
                 break;
         }
+        
 
-        if (LevelSystem.instance.noMoreLevels)
-        {
-            gameEnded = true;
-        }
-        else
-        {
-            StartCoroutine(LoadingTime());
-        }
-       
 
     }
 
@@ -121,6 +129,11 @@ public class LevelData : MonoBehaviour
         if (gameEnded == true)
         {
             gameEnded = false;
+        }
+
+        if(hasLost == true)
+        {
+            hasLost = false;
         }
     }
 
