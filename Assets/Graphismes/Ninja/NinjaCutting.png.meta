@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NinjaCutting_0: -4878374734757883061
+      NinjaCutting_1: 7565203804604182104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

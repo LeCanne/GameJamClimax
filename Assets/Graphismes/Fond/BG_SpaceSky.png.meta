@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BG_SpaceSky_0: 2145745940120041900
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

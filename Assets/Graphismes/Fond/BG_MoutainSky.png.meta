@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BG_MoutainSky_0: 7213287759505751320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
