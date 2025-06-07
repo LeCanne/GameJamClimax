@@ -39,12 +39,14 @@ public class Object : MonoBehaviour
     //Set cuttable object
     bool canCut;
     bool isCut;
+    bool canInputCut = true;
 
    
 
 
     private void Awake()
     {
+<<<<<<< Updated upstream
         r_spriteRenderer.sprite = r_sprite;
         l_spriteRenderer.sprite = l_sprite; 
 
@@ -53,13 +55,25 @@ public class Object : MonoBehaviour
 
         spline = splinePath.Spline;
         cut = InputSystem.actions.FindAction("Attack");
+=======
+        
+       
+>>>>>>> Stashed changes
         
 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        LevelData.instance.state = LevelData.levelStates.ONGOING;
+        r_spriteRenderer.sprite = r_sprite;
+        l_spriteRenderer.sprite = l_sprite;
+
+        r_object = r_spriteRenderer.gameObject;
+        l_object = l_spriteRenderer.gameObject;
+
+        spline = splinePath.Spline;
+        cut = InputSystem.actions.FindAction("Attack");
     }
 
     // Update is called once per frame
@@ -108,7 +122,7 @@ public class Object : MonoBehaviour
          
         }
 
-        if (cut.triggered)
+        if (cut.triggered && canInputCut)
         {
             if (canCut == true)
             {
@@ -121,7 +135,14 @@ public class Object : MonoBehaviour
             {
                 Debug.Log(" FAILURE !");
             }
+<<<<<<< Updated upstream
            
+=======
+            StartCoroutine(handleEnd(State));
+
+            canInputCut = false;
+
+>>>>>>> Stashed changes
         }
       
     }
@@ -150,5 +171,17 @@ public class Object : MonoBehaviour
         
     }
 
+<<<<<<< Updated upstream
+=======
+    IEnumerator handleEnd(LevelData.levelStates state)
+    {
+        yield return new WaitForSeconds(1.5f);
+        yield return LevelData.instance.state = state;
+        LevelData.instance.HandleEnd();
+
+        
+    }
+
+>>>>>>> Stashed changes
     
 }
