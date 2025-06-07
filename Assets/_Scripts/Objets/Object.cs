@@ -45,6 +45,7 @@ public class Object : MonoBehaviour
 
     private void Awake()
     {
+        LevelData.instance.state = LevelData.levelStates.ONGOING;
         r_spriteRenderer.sprite = r_sprite;
         l_spriteRenderer.sprite = l_sprite; 
 
@@ -71,6 +72,7 @@ public class Object : MonoBehaviour
         }
 
         SlashObject();
+        LevelDataUpdate();
         
 
     }
@@ -90,6 +92,7 @@ public class Object : MonoBehaviour
         else if (currentTime < 1)
         {
             currentTime += Time.deltaTime * speed;
+            currentTime = Mathf.Clamp01(currentTime);
         }
         Vector3 currentDistance = spline.EvaluatePosition(animationCurve.Evaluate(currentTime));
         moveObject.transform.position = currentDistance + splinePath.gameObject.transform.position;
@@ -110,18 +113,23 @@ public class Object : MonoBehaviour
 
         if (cut.triggered)
         {
+            LevelData.levelStates State;
             if (canCut == true)
             {
                 Debug.Log(" SUCCESS !");
                 isCut = true;
                 canCut = false;
                 LaunchObjet();
+               State = LevelData.levelStates.WON;
+               
             }
             else
             {
                 Debug.Log(" FAILURE !");
+                State = LevelData.levelStates.LOST;
             }
-           
+            StartCoroutine(handleEnd(State));
+
         }
       
     }
@@ -141,6 +149,12 @@ public class Object : MonoBehaviour
     }
     
 
+    void LevelDataUpdate()
+    {
+        LevelData currentInstance = LevelData.instance;
+        currentInstance.currentProgress = currentTime;
+        currentInstance.cutTime = Cut;
+    }
     IEnumerator CuttingTime()
     {
         Debug.Log("CUT!");
@@ -148,6 +162,12 @@ public class Object : MonoBehaviour
         yield return new WaitForSeconds(reactionTime);
         canCut = false;
         
+    }
+
+    IEnumerator handleEnd(LevelData.levelStates state)
+    {
+        yield return new WaitForSeconds(1.5f);
+        yield return LevelData.instance.state = state;
     }
 
     
