@@ -40,11 +40,10 @@ public class BlackBarsController : MonoBehaviour
     private Coroutine _triggerApexCoroutine;
     private Coroutine _resetBarsCoroutine;
 
-    private bool _enableBarUpdate = false;
+    private bool _enableBarUpdate = true;
 
     private void Update()
     {
-
         if (_enableBarUpdate)
         {
             UpdateBars();
@@ -76,7 +75,7 @@ public class BlackBarsController : MonoBehaviour
 
         IEnumerator TriggerApexCoroutine()
         {
-            _enableBarUpdate = true;
+            _enableBarUpdate = false;
             float timeElapsed = 0f;
 
             float topBarInitialY = _topBar.anchoredPosition.y;
@@ -133,6 +132,8 @@ public class BlackBarsController : MonoBehaviour
 
             _topBar.anchoredPosition = new Vector2(_topBar.anchoredPosition.x, _topBarStartPosition);
             _bottomBar.anchoredPosition = new Vector2(_bottomBar.anchoredPosition.x, _topBarStartPosition);
+
+            _enableBarUpdate = true;
         }
     }
 

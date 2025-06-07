@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 322397713587214158}
-  - component: {fileID: 8414485096509417222}
+  - component: {fileID: 5629618788782594422}
   m_Layer: 5
   m_Name: BlackBars
   m_TagString: Untagged
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8414485096509417222
+--- !u!114 &5629618788782594422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3188328464539121829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 176c3c19165de9f4d824d3ccf7718009, type: 3}
+  m_Script: {fileID: 11500000, guid: dee52c325e7639e4ea3c55b19111e2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _progress: 0
@@ -57,59 +57,58 @@ MonoBehaviour:
   _bottomBarEndPosition: 200
   _topBarApexPosition: -300
   _bottomBarApexPosition: 300
-  _apexTransitionDuration: 0.25
+  _apexTransitionDuration: 0.15
   _apexTransitionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 62.075
-      outSlope: 62.075
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 2
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.013089005
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.021066189
-      outSlope: 0.021066189
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 1
-      inWeight: 0.8900524
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _resetTransitionDuration: 0.1
+  _resetTransitionDuration: 0.25
   _resetTransitionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 62.075
-      outSlope: 62.075
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
-      weightedMode: 2
+      weightedMode: 0
       inWeight: 0
-      outWeight: 0.013089005
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.021066189
-      outSlope: 0.021066189
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
-      weightedMode: 1
-      inWeight: 0.8900524
+      weightedMode: 0
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   _topBar: {fileID: 8829592491157254358}
   _bottomBar: {fileID: 6575637155759281798}
-  _updateAlways: 1
 --- !u!1 &4843766028981069618
 GameObject:
   m_ObjectHideFlags: 0
