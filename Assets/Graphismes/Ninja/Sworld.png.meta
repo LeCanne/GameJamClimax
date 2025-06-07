@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d46bb041a5e1f0c428e47e5b30abe6be
+guid: 8517f9d7ed66d404280133a4c9da9a27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5655580626128419000
-    second: NinjaLost_0
-  - first:
-      213: 2837852986466072791
-    second: NinjaLost_1
+      213: -1646142887658830865
+    second: Sworld_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NinjaLost_0
+      name: Sworld_0
       rect:
         serializedVersion: 2
-        x: 227
-        y: 205
-        width: 10
-        height: 10
+        x: 27
+        y: 3
+        width: 29
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 847c80592675381b0800000000000000
-      internalID: -5655580626128419000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NinjaLost_1
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 0
-        width: 247
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d8771f6144126720800000000000000
-      internalID: 2837852986466072791
+      spriteID: fe34f8be3c9b729e0800000000000000
+      internalID: -1646142887658830865
       vertices: []
       indices: 
       edges: []
@@ -159,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      NinjaLost_0: -5655580626128419000
-      NinjaLost_1: 2837852986466072791
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

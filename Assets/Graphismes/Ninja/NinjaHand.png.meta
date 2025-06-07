@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: bee05488c8eecac4492f7375b829e4ed
+guid: 498b9c4f3edb377439ed93ee457c2c18
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4878374734757883061
-    second: NinjaCutting_0
-  - first:
-      213: 7565203804604182104
-    second: NinjaCutting_1
+      213: 4767065297344090051
+    second: NinjaHand_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NinjaCutting_0
+      name: NinjaHand_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 0
-        width: 176
-        height: 197
+        x: 8
+        y: 7
+        width: 54
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b43148586088c4cb0800000000000000
-      internalID: -4878374734757883061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: NinjaCutting_1
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 73
-        width: 151
-        height: 163
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85eadd237c00df860800000000000000
-      internalID: 7565203804604182104
+      spriteID: 3cf494581a4082240800000000000000
+      internalID: 4767065297344090051
       vertices: []
       indices: 
       edges: []
@@ -159,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      NinjaCutting_0: -4878374734757883061
-      NinjaCutting_1: 7565203804604182104
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

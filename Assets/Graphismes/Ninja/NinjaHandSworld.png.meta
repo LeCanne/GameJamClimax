@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9d2f2e88d03e84a46ad5ff18d29c9bb6
+guid: f9d8de83e14222b4e995f7f05314b496
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4951483602751478464
-    second: NinjaHolding_0
+      213: 3907171847317021308
+    second: NinjaHandSworld_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NinjaHolding_0
+      name: NinjaHandSworld_0
       rect:
         serializedVersion: 2
-        x: 141
-        y: 0
-        width: 189
-        height: 283
+        x: 14
+        y: 12
+        width: 51
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 045a3dab5ebc84bb0800000000000000
-      internalID: -4951483602751478464
+      spriteID: c72ecb31810193630800000000000000
+      internalID: 3907171847317021308
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      NinjaHolding_0: -4951483602751478464
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
