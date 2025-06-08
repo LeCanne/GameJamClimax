@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Splines;
@@ -42,9 +42,8 @@ public class Object : MonoBehaviour
     bool canInputCut = true;
 
     bool lost;
-    
 
-   
+    public static Action OnCut;
 
 
     private void Awake()
@@ -142,7 +141,7 @@ public class Object : MonoBehaviour
           
 
             canInputCut = false;
-
+            OnCut?.Invoke();
 
         }
       

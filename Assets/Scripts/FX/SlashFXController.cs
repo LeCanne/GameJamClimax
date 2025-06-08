@@ -9,6 +9,21 @@ public class SlashFXController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        Object.OnCut += OnCut;
+    }
+
+    private void OnDisable()
+    {
+        Object.OnCut -= OnCut;
+    }
+
+    private void OnCut()
+    {
+        TriggerFX();
+    }
+
     [ContextMenu("Trigger")]
     public void TriggerFX()
     {
