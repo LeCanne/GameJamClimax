@@ -133,6 +133,7 @@ public class Object : MonoBehaviour
             else
             {
                 Debug.Log(" FAILURE !");
+                OnFail?.Invoke();
             }
 
             canInputCut = false;
