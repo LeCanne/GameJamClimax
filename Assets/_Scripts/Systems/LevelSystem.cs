@@ -24,6 +24,12 @@ public class LevelSystem : MonoBehaviour
     {
         currentLevelID = Mathf.Clamp(currentLevelID, 0, levels.Length - 1);
         currentLevelObject = levels[currentLevelID];
+
+        foreach (var level in levels)
+        {
+            level.gameObject.SetActive(false);
+        }
+        currentLevelObject.SetActive(true);
     }
 
     // Update is called once per frame
