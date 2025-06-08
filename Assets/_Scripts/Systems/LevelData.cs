@@ -18,6 +18,7 @@ public class LevelData : MonoBehaviour
 
     public bool gameEnded;
     public bool hasLost;
+    [HideInInspector] public bool hasEnded = false;
 
     public enum levelStates
     {
