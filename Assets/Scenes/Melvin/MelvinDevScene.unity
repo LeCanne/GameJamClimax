@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408994110807733398, guid: 05169e708afdcf34f85dfb0a332e8122, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8477025636668363121, guid: 05169e708afdcf34f85dfb0a332e8122, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1366,7 +1366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408994110807733398, guid: 6ec4aa90800759e44bfb3ab8f0dcbfb2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 833804232188601123, guid: 6ec4aa90800759e44bfb3ab8f0dcbfb2, type: 3}
       propertyPath: m_Splines.Array.data[0].m_Knots.Array.size
@@ -1566,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8816940266912427224, guid: 6ec4aa90800759e44bfb3ab8f0dcbfb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: 4.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
