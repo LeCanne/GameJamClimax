@@ -150,7 +150,17 @@ public class Object : MonoBehaviour
         {
             Time.timeScale = 0f;
 
-            yield return new WaitForSecondsRealtime(1f);
+            if (LevelSystem.instance.currentLevelID >= 4)
+            {
+                PostProcessManager.Instance.SetNegative(true);
+            }
+
+            yield return new WaitForSecondsRealtime(HITSTOP_DURATION);
+
+            if (LevelSystem.instance.currentLevelID >= 4)
+            {
+                PostProcessManager.Instance.SetNegative(false);
+            }
 
             Time.timeScale = 1f;
 
