@@ -45,6 +45,10 @@ public class Object : MonoBehaviour
 
     public static Action OnCut;
 
+    [Space]
+
+    public ShockwaveFXController _shockwaveFX;
+
 
     private void Awake()
     {
@@ -132,6 +136,12 @@ public class Object : MonoBehaviour
                 canCut = false;
                 LaunchObjet();
                 StartCoroutine(handleEnd(LevelData.levelStates.WON));
+
+
+                if (LevelSystem.instance.currentLevelID >= 3)
+                {
+                    SpawnShockwave();
+                }
             }
             else
             {
@@ -142,7 +152,6 @@ public class Object : MonoBehaviour
 
             canInputCut = false;
             OnCut?.Invoke();
-
         }
       
     }
@@ -161,6 +170,12 @@ public class Object : MonoBehaviour
         l_rb.AddForce(-l_object.transform.right * 10, ForceMode2D.Impulse);
     }
     
+    private void SpawnShockwave()
+    {
+        Debug.Log("Shockwave");
+        var shockwave = Instantiate(_shockwaveFX, moveObject.transform.position, Quaternion.identity);
+        shockwave.TriggerFX(3f, 0.2f);
+    }
 
     IEnumerator CuttingTime()
     {
