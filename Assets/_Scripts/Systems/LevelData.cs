@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -18,7 +19,7 @@ public class LevelData : MonoBehaviour
 
     public bool gameEnded;
     public bool hasLost;
-    [HideInInspector] public bool hasEnded = false;
+    public bool hasEnded = false;
 
     public enum levelStates
     {
@@ -28,8 +29,8 @@ public class LevelData : MonoBehaviour
     }
 
     public levelStates state;
-    
-    
+
+    public static Action OnLevelStart;
 
     private void Awake()
     {
@@ -106,7 +107,7 @@ public class LevelData : MonoBehaviour
         beforeProcess = true;
         yield return new WaitForSeconds(2.5f);
         processingLevel = true;
-        
+        OnLevelStart?.Invoke();
     }
 
     public void CheckStates()

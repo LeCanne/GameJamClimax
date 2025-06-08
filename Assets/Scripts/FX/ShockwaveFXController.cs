@@ -49,7 +49,7 @@ public class ShockwaveFXController : MonoBehaviour
                 _scalableCircle.Width = _circleWidthCurve.Evaluate(timeElapsed / shockwaveDuration);
                 _scalableCircle.Radius = _circleRadiusCurve.Evaluate(timeElapsed / shockwaveDuration) * shockwaveRadius;
                 yield return null;
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.unscaledDeltaTime;
             }
 
             _scalableCircle.Width = 0f;

@@ -41,17 +41,20 @@ public class BlackBarsController : MonoBehaviour
     private Coroutine _resetBarsCoroutine;
 
     private bool _enableBarUpdate = true;
+    private bool _hasDoneApex = false;
 
     private void OnEnable()
     {
         Object.OnCut += ResetBars;
         Object.OnFail += ResetBars;
+        LevelData.OnLevelStart += () => _hasDoneApex = false;
     }
 
     private void OnDisable()
     {
         Object.OnCut -= ResetBars;
         Object.OnFail -= ResetBars;
+        LevelData.OnLevelStart -= () => _hasDoneApex = false;
     }
 
     private void Update()
@@ -76,7 +79,7 @@ public class BlackBarsController : MonoBehaviour
             SetProgress(levelData.currentProgress / levelData.cutTime);
             UpdateBars();
         }
-        else
+        else if (!_hasDoneApex)
         {
             TriggerApex();
         }
@@ -107,6 +110,7 @@ public class BlackBarsController : MonoBehaviour
 
         IEnumerator TriggerApexCoroutine()
         {
+            _hasDoneApex = true;
             _enableBarUpdate = false;
             float timeElapsed = 0f;
 
@@ -123,7 +127,7 @@ public class BlackBarsController : MonoBehaviour
                 _bottomBar.anchoredPosition = new Vector2(_bottomBar.anchoredPosition.x, bottomBarNewY);
 
                 yield return null;
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.unscaledDeltaTime;
             }
 
             _topBar.anchoredPosition = new Vector2(_topBar.anchoredPosition.x, _topBarApexPosition);
@@ -159,7 +163,7 @@ public class BlackBarsController : MonoBehaviour
                 _bottomBar.anchoredPosition = new Vector2(_bottomBar.anchoredPosition.x, bottomBarNewY);
 
                 yield return null;
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.unscaledDeltaTime;
             }
 
             _topBar.anchoredPosition = new Vector2(_topBar.anchoredPosition.x, _topBarStartPosition);
