@@ -50,7 +50,7 @@ public class Object : MonoBehaviour
 
     public ShockwaveFXController _shockwaveFX;
 
-    private const float HITSTOP_DURATION = 1f;
+    private const float HITSTOP_DURATION = 0.75f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -166,6 +166,7 @@ public class Object : MonoBehaviour
 
             isCut = true;
             canCut = false;
+            DoScreenshake();
             LaunchObjet();
             StartCoroutine(handleEnd(LevelData.levelStates.WON));
         }
@@ -190,6 +191,18 @@ public class Object : MonoBehaviour
         Debug.Log("Shockwave");
         var shockwave = Instantiate(_shockwaveFX, moveObject.transform.position, Quaternion.identity);
         shockwave.TriggerFX(5f, 0.2f);
+    }
+
+    private void DoScreenshake()
+    {
+        if (LevelSystem.instance.currentLevelID == 3)
+        {
+            ScreenShake.Shake(1f, 1f);
+        }
+        else if (LevelSystem.instance.currentLevelID >= 4)
+        {
+            ScreenShake.Shake(1f, 2.5f);
+        }
     }
 
     IEnumerator CuttingTime()
