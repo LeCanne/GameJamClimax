@@ -63,7 +63,7 @@ public class EffectsData : MonoBehaviour
     void ShowRound()
     {
        
-        boundText.text = "ROUND " + LevelSystem.instance.currentLevelID.ToString();
+        boundText.text = "ROUND " + (LevelSystem.instance.currentLevelID+1).ToString();
        
     }
 

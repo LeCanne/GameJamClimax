@@ -21,6 +21,8 @@ public class LevelData : MonoBehaviour
     public bool hasLost;
     public bool hasEnded = false;
 
+    public static Action startLevel;
+
     public enum levelStates
     {
         ONGOING,
@@ -93,6 +95,7 @@ public class LevelData : MonoBehaviour
     {
         
         yield return new WaitForSeconds(loadingTime);
+        startLevel.Invoke();
         LevelSystem.instance.NextLevel();
         yield return levelStarted = true;
         yield return new WaitForSeconds(0.1f);
