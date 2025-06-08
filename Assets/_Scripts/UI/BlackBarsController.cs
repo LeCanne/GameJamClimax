@@ -42,11 +42,43 @@ public class BlackBarsController : MonoBehaviour
 
     private bool _enableBarUpdate = true;
 
+    private void OnEnable()
+    {
+        Object.OnCut += ResetBars;
+        Object.OnFail += ResetBars;
+    }
+
+    private void OnDisable()
+    {
+        Object.OnCut -= ResetBars;
+        Object.OnFail -= ResetBars;
+    }
+
     private void Update()
     {
+        if (LevelData.instance.hasEnded) return;
+
+        CheckCutTiming();
+
+
         if (_enableBarUpdate)
         {
             UpdateBars();
+        }
+    }
+
+    private void CheckCutTiming()
+    {
+        LevelData levelData = LevelData.instance;
+
+        if (levelData.currentProgress < levelData.cutTime)
+        {
+            SetProgress(levelData.currentProgress / levelData.cutTime);
+            UpdateBars();
+        }
+        else
+        {
+            TriggerApex();
         }
     }
 

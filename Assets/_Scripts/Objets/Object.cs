@@ -44,25 +44,19 @@ public class Object : MonoBehaviour
     bool lost;
 
     public static Action OnCut;
+    public static Action OnFail;
 
     [Space]
 
     public ShockwaveFXController _shockwaveFX;
 
-
-    private void Awake()
-    {
-
-        
-       
-
-        
-
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        LevelData.instance.hasEnded = false;
         LevelData.instance.state = LevelData.levelStates.ONGOING;
+        LevelData.instance.cutTime = Cut;
+
         r_spriteRenderer.sprite = r_sprite;
         l_spriteRenderer.sprite = l_sprite;
 
@@ -76,7 +70,9 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(LevelData.instance.processingLevel == true)
+        LevelData.instance.currentProgress = currentTime;
+
+        if (LevelData.instance.processingLevel == true)
         {
             if (!isCut)
             {
@@ -85,9 +81,6 @@ public class Object : MonoBehaviour
 
             SlashObject();
         }
-      
-        
-
     }
 
     public void TravelSpline()
@@ -122,9 +115,6 @@ public class Object : MonoBehaviour
         {
             StartCoroutine(CuttingTime());
             cutCalled = true;
-
-
-         
         }
 
         if (cut.triggered && canInputCut)
@@ -137,7 +127,6 @@ public class Object : MonoBehaviour
                 LaunchObjet();
                 StartCoroutine(handleEnd(LevelData.levelStates.WON));
 
-
                 if (LevelSystem.instance.currentLevelID >= 3)
                 {
                     SpawnShockwave();
@@ -147,8 +136,6 @@ public class Object : MonoBehaviour
             {
                 Debug.Log(" FAILURE !");
             }
-
-          
 
             canInputCut = false;
             OnCut?.Invoke();
@@ -189,6 +176,14 @@ public class Object : MonoBehaviour
 
     IEnumerator handleEnd(LevelData.levelStates state)
     {
+        if (state == LevelData.levelStates.LOST)
+        {
+            OnFail?.Invoke();
+        }
+
+        LevelData.instance.currentProgress = 0f;
+        LevelData.instance.hasEnded = true;
+
         yield return new WaitForSeconds(1.5f);
         yield return LevelData.instance.state = state;
         LevelData.instance.HandleEnd();
