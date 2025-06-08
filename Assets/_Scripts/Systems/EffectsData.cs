@@ -9,6 +9,7 @@ public class EffectsData : MonoBehaviour
     public GameObject endScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public AudioSource doTransition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,6 +34,7 @@ public class EffectsData : MonoBehaviour
         {
             bannerRound.Play("ShowRound");
             ShowRound();
+            doTransition.Play();
         }
 
         if (LevelData.instance.gameEnded)

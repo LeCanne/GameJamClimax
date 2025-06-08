@@ -40,6 +40,7 @@ public class Object : MonoBehaviour
     bool canCut;
     bool isCut;
     bool canInputCut = true;
+    public AudioSource impact;
 
     bool lost;
 
@@ -169,6 +170,7 @@ public class Object : MonoBehaviour
             DoScreenshake();
             LaunchObjet();
             StartCoroutine(handleEnd(LevelData.levelStates.WON));
+            impact.Play();
         }
     }
 
