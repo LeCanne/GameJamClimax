@@ -117,6 +117,7 @@ MonoBehaviour:
   loop: 0
   Cut: 0.675
   reactionTime: 1
+  _shockwaveFX: {fileID: 1051711360937700380, guid: 1204ef7ff8bb2d54cbde079b33f3e889, type: 3}
 --- !u!1 &2321433921005220907
 GameObject:
   m_ObjectHideFlags: 0
